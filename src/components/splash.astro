@@ -1,84 +1,93 @@
 ---
 import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
-import astronautImage from "~/assets/astronaut.png";
-import HeroImage from "~/components/hero-image.astro";
-import Starfield from "~/components/starfield.astro";
-import GitHubCorner from "./github-corner.astro";
+import JaredImage from "~/assets/jared_ruddy.jpg";
+
+
+import {
+  BackgroundImage,
+  ImageSupportDetection,
+} from "astro-imagetools/components";
+
+import { Icon } from "astro-icon";
+import type { FooterLink } from "~/types";
+
+const links: Array<FooterLink> = [
+  
+  {
+    url: "https://uk.linkedin.com/in/jaredruddy",
+    description: "Jared on LinkedIn",
+    icon: "fa-brands:linkedin",
+  },
+  {
+    url: "https://twitter.com/jar4d",
+    description: "Jared on Twitter",
+    icon: "fa-brands:twitter",
+  },
+  {
+    url: "https://github.com/jar4d",
+    description: "View source on GitHub",
+    icon: "fa-brands:github",
+  },
+
+];
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
-<section class="relative h-full bg-black">
-  <Starfield />
-  <GitHubCorner />
-  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
-    <HeroImage />
+<section class="relative h-full">
+<div class="md:bg-[url('src/assets/jared_ruddy.jpg')] bg-center h-screen self-start">
+
+  <div class="relative grid h-full place-items-center sm:grid-cols-1 md:grid-cols-2 mx-2">
+    <div class="flex flex-col self-center sm:gap-1 md:gap-4">
+      <h2 class="gradient-text text-left font-extrabold tracking-tighter text-8xl">
+        Hello,
+        <br /> I'm
+        <br /> Jared.
+        
+      </h2>
+
+<p class="text-left text-xs md:text-sm">
+<br><b>Growth wrangler. Marketer. Customer champion.</b>
+<br>I've spent my career building great customer experiences.&nbsp;<a class="underline decoration-sky-500" href="http://thinkplanthrive.com/">I've started up.</a>&nbsp;<a class="underline decoration-pink-500" href="https://www.eu-startups.com/2016/08/10-european-pet-startups-to-watch-in-2016-and-beyond">Sold</a>. Built new things, including&nbsp;<a class="underline decoration-indigo-500" href="https://www.pressgazette.co.uk/news-uk-launches-times-london-weekly-international-digital-edition/">a newspaper</a>.&nbsp;<a class="underline decoration-sky-500" href="https://www.wired.co.uk/article/miro-robo-dog-elderly">A robot dog</a>.&nbsp;<a class="underline decoration-pink-500" href="https://www.inclusiviti.com/">An omni-directional wheelchair</a>. <a hclass="underline decoration-sky-500" ref="https://www.techradar.com/uk/news/world-of-tech/bt-tower-plays-host-to-europe-s-biggest-led-display-646210">The most visible screen in London</a>. And for a time,&nbsp;<a class="underline decoration-pink-500" href="https://www.engadget.com/2013/02/20/320-gigapixel-panorama-of-london/">the world's biggest picture</a>. I lead brand, marketing and IR for <a class="underline decoration-indigo-500" href="https://www.forwardpartners.com/">Forward Partners</a>, an  early-stage VC Before Forward I led marketing and growth for Marketplace business&nbsp;<a class="underline decoration-sky-500" href="https://www.plentific.com/">Plentific</a>, helping them to pivot, scale their business across Europe and raise a $100m round.
+<br>
+<br>
+
+</p>
+
+
+  <ul class="relative grid grid-cols-2 gap-2 sm:grid-cols-8">
+
+    {
+      links.map((link) => (
+        <li style="color: SlateGray">
+          <a
+            class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-current p-2"
+            href={link.url}
+          >
+            <span class="sr-only">{link.description}</span>
+            <Icon class="h-full" name={link.icon} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+
+
+
   </div>
-  <div class="relative grid h-full place-items-center sm:grid-cols-2">
-    <h2
-      class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
-    >
-      <Icon name="logomark" class="h-24 text-white md:h-32" />
-      <div
-        class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
-      >
-        Build fast
-        <br /> websites,
-        <br /> faster.
-      </div>
-    </h2>
-    <div
-      id="astronaut"
-      class="w-2/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
-    >
-      <Picture
-        class="h-full w-full object-cover"
-        src={astronautImage}
-        widths={widths}
-        sizes={sizes}
-        loading="eager"
-        alt="A floating astronaut in a space suit"
-      />
-    </div>
+</div>
+    
   </div>
+
 </section>
 
-<noscript>
-  <style>
-    #splash-bg-fallback {
-      display: block;
-    }
-  </style>
-</noscript>
-
-<style>
-  @keyframes float {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-
-    100% {
-      transform: translate3d(0, 30px, 0);
-    }
-  }
-
-  #astronaut {
-    animation: float linear 2.5s infinite alternate;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    #astronaut {
-      @apply animate-none;
-    }
-
-    :global(#starfield) {
-      @apply hidden;
-    }
-
-    #splash-bg-fallback {
-      @apply block;
-    }
-  }
-</style>
+<!--
+    {
+    url: "https://fxxingremarkable.com/",
+    description: "Fxxing remarkable",
+    icon: "mdi:flash-outline",
+  },
+  -->

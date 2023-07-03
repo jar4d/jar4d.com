@@ -22,6 +22,9 @@ module.exports = {
       borderColor: {
         default: "var(--color-border)",
       },
+      backgroundImage: {
+        'my_bg_image' : "url(..src/assets/jared_ruddy.jpg)",
+      }
     },
   },
   corePlugins: {
