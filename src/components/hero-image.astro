@@ -1,23 +1,16 @@
 ---
 import { Image } from "@astrojs/image/components";
-import { getImage } from "@astrojs/image";
-
-const image = await getImage({
-  src: import.meta.env.BASE_URL + "/images/jared_ruddy.jpg",
-  width: 1920,
-  height: 1080,
-  format: 'jpg',
-});
 ---
 
 <div class="relative h-full">
   <div class="absolute inset-0">
-    <img
+    <Image
       class="h-full w-full object-cover"
-      src={image.src}
-      width={image.attributes.width}
-      height={image.attributes.height}
+      src="/images/jared_ruddy.jpg"
+      width={1920}
+      height={1080}
       alt="Jared Ruddy"
+      format="jpg"
     />
   </div>
 </div>
