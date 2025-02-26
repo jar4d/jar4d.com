@@ -11,6 +11,7 @@ import Intro from "~/components/intro.astro";
 import Showcase from "~/components/showcase.astro";
 import Splash from "~/components/splash.astro";
 import "~/styles/index.css";
+import ImageCarousel from "~/components/image-carousel.astro";
 
 const { generator, site } = Astro;
 const image = new URL("~/src/assets/jared_ruddy.jpg", site);
@@ -66,8 +67,9 @@ const description =
   >
     <Header />
     <Splash />
-    <div class="space-y-24 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-      <Intro />
+    <Intro />
+    <ImageCarousel />
+    <div class="relative z-10 space-y-24 px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
       <Features />
       <Compatibility />
       <Showcase />

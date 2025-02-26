@@ -1,0 +1,111 @@
+---
+const images = [
+  {
+    src: "https://placehold.co/600x400/222222/FFFFFF/png",
+    aspect: "aspect-[3/2]",
+    width: "w-64"
+  },
+  {
+    src: "https://placehold.co/400x600/222222/FFFFFF/png",
+    aspect: "aspect-[2/3]",
+    width: "w-44"
+  },
+  {
+    src: "https://placehold.co/800x400/222222/FFFFFF/png",
+    aspect: "aspect-[2/1]",
+    width: "w-80"
+  },
+  {
+    src: "https://placehold.co/500x500/222222/FFFFFF/png",
+    aspect: "aspect-square",
+    width: "w-56"
+  }
+];
+---
+
+<section class="relative bg-offset py-16 z-0">
+  <div class="relative h-[800px] overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Top row */}
+    <div class="absolute inset-0 h-[45%] mb-[5px]">
+      <div class="animate-slide-right flex gap-[5px] absolute left-0">
+        {images.map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover`}
+            />
+          </div>
+        ))}
+        {/* Duplicate for seamless loop */}
+        {images.map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Bottom row */}
+    <div class="absolute bottom-0 inset-x-0 h-[45%]">
+      <div class="animate-slide-left flex gap-[5px] absolute right-0">
+        {images.reverse().map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover`}
+            />
+          </div>
+        ))}
+        {/* Duplicate for seamless loop */}
+        {images.map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes slide-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+
+  .animate-slide-right {
+    animation: slide-right 40s linear infinite;
+  }
+
+  .animate-slide-left {
+    animation: slide-left 40s linear infinite;
+  }
+
+  .animate-slide-right:hover,
+  .animate-slide-left:hover {
+    animation-play-state: paused;
+  }
+</style> 
