@@ -1,13 +1,36 @@
 ---
 import { Icon } from "astro-icon";
 import ContentSection from "~/components/content-section.astro";
+
+const images = [
+  {
+    src: "https://placehold.co/600x400/222222/FFFFFF/png",
+    aspect: "aspect-[3/2]",
+    width: "w-64"
+  },
+  {
+    src: "https://placehold.co/400x600/222222/FFFFFF/png",
+    aspect: "aspect-[2/3]",
+    width: "w-44"
+  },
+  {
+    src: "https://placehold.co/800x400/222222/FFFFFF/png",
+    aspect: "aspect-[2/1]",
+    width: "w-80"
+  },
+  {
+    src: "https://placehold.co/500x500/222222/FFFFFF/png",
+    aspect: "aspect-square",
+    width: "w-56"
+  }
+];
 ---
 
 <ContentSection title="About Me" id="intro">
   <Fragment slot="lead">
     I help companies build and scale their products through effective marketing and growth strategies.
   </Fragment>
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-12">
     <div class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
       <Icon name="mdi:rocket" class="h-12 w-12" />
       <h3 class="text-center font-bold text-xl">Growth Strategy</h3>
@@ -24,4 +47,89 @@ import ContentSection from "~/components/content-section.astro";
       <p class="text-center text-offset">Creating compelling brand stories that resonate</p>
     </div>
   </div>
+
+  <div class="relative h-[50vh] overflow-hidden bg-black py-1">
+    {/* Top row */}
+    <div class="relative h-[45%] mb-[5px]">
+      <div class="animate-slide-right flex gap-[5px] absolute left-0">
+        {images.map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover rounded-sm`}
+            />
+          </div>
+        ))}
+        {/* Duplicate for seamless loop */}
+        {images.map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover rounded-sm`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Bottom row */}
+    <div class="relative h-[45%]">
+      <div class="animate-slide-left flex gap-[5px] absolute right-0">
+        {images.reverse().map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover rounded-sm`}
+            />
+          </div>
+        ))}
+        {/* Duplicate for seamless loop */}
+        {images.map((image) => (
+          <div class={`relative ${image.width} shrink-0`}>
+            <img
+              src={image.src}
+              alt="Placeholder"
+              class={`${image.aspect} h-full w-full object-cover rounded-sm`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
 </ContentSection>
+
+<style>
+  @keyframes slide-right {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+
+  .animate-slide-right {
+    animation: slide-right 40s linear infinite;
+  }
+
+  .animate-slide-left {
+    animation: slide-left 40s linear infinite;
+  }
+
+  .animate-slide-right:hover,
+  .animate-slide-left:hover {
+    animation-play-state: paused;
+  }
+</style>
