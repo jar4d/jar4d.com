@@ -1,0 +1,77 @@
+---
+const images = [
+  {
+    src: "https://placehold.co/600x400/222222/FFFFFF/png",
+    aspect: "aspect-[3/2]",
+    width: "w-72"
+  },
+  {
+    src: "https://placehold.co/400x600/222222/FFFFFF/png",
+    aspect: "aspect-[2/3]",
+    width: "w-48"
+  },
+  {
+    src: "https://placehold.co/800x400/222222/FFFFFF/png",
+    aspect: "aspect-[2/1]",
+    width: "w-96"
+  },
+  {
+    src: "https://placehold.co/500x500/222222/FFFFFF/png",
+    aspect: "aspect-square",
+    width: "w-64"
+  },
+  {
+    src: "https://placehold.co/600x400/222222/FFFFFF/png",
+    aspect: "aspect-[3/2]",
+    width: "w-72"
+  },
+  {
+    src: "https://placehold.co/400x600/222222/FFFFFF/png",
+    aspect: "aspect-[2/3]",
+    width: "w-48"
+  }
+];
+---
+
+<div class="relative h-[33vh] overflow-hidden bg-black">
+  <div class="animate-slide flex gap-4 absolute py-4">
+    {images.map((image) => (
+      <div class={`relative ${image.width} shrink-0`}>
+        <img
+          src={image.src}
+          alt="Placeholder"
+          class={`${image.aspect} h-full w-full object-cover rounded-lg`}
+        />
+      </div>
+    ))}
+    {/* Duplicate images for seamless loop */}
+    {images.map((image) => (
+      <div class={`relative ${image.width} shrink-0`}>
+        <img
+          src={image.src}
+          alt="Placeholder"
+          class={`${image.aspect} h-full w-full object-cover rounded-lg`}
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-slide {
+    animation: slide 30s linear infinite;
+  }
+
+  .animate-slide:hover {
+    animation-play-state: paused;
+  }
+</style> 
