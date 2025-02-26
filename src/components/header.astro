@@ -4,76 +4,42 @@ import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
 
 const navItems: Array<NavItem> = [
-  { title: "Features", url: "#features" },
-  { title: "Compatibility", url: "#compatibility" },
-  { title: "Showcase", url: "#showcase" },
+  { title: "About", url: "#intro" },
+  { title: "Experience", url: "#experience" },
+  { title: "Skills", url: "#skills" },
+  { title: "Projects", url: "#projects" }
 ];
 ---
 
-<header
-  id="page-header"
-  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
->
-  <a class="flex items-center gap-3 hover:!text-default" href="#">
-    <h1 class="sr-only">Astro</h1>
-    <Icon name="logomark" class="h-10" />
-    <Icon name="wordmark" class="hidden h-4 sm:block" />
-  </a>
-  <div>
-    <div class="flex items-center gap-6">
-      <nav class="hidden sm:block">
-        <ul class="flex items-center gap-6">
-          {
-            navItems.map(({ title, url }) => (
-              <li>
-                <a class="text-sm" href={url}>
-                  {title}
-                </a>
-              </li>
-            ))
-          }
+<header class="fixed top-0 left-0 z-50 w-full backdrop-blur-sm">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex-shrink-0">
+        <a href="/" class="font-heavy text-xl">Jared Ruddy</a>
+      </div>
+      <nav class="hidden md:block">
+        <ul class="flex space-x-8">
+          {navItems.map(({ title, url }) => (
+            <li>
+              <a 
+                href={url}
+                class="font-light hover:text-primary transition-colors"
+              >
+                {title}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
-      <button
-        id="open-nav-button"
-        type="button"
-        class="btn sm:hidden"
-        aria-label="Navigation"
-      >
-        <Icon pack="mdi" name="menu" class="h-8" />
-      </button>
-      <ThemeSwitcher />
-    </div>
-    <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 bg-default px-8 py-4 text-default">
-        <div class="space-y-4" role="dialog" aria-modal="true">
-          <header class="text-right">
-            <button
-              id="close-nav-button"
-              type="button"
-              class="btn"
-              aria-label="Close navigation"
-            >
-              <Icon pack="mdi" name="close" class="h-8" />
-            </button>
-          </header>
-          <div class="flex justify-center">
-            <Icon name="logomark" class="h-16" />
-          </div>
-          <nav>
-            <ul class="flex flex-col">
-              {
-                navItems.map(({ title, url }) => (
-                  <li>
-                    <a class="block py-4 text-center text-xl" href={url}>
-                      {title}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
-        </div>
+      <div class="flex items-center gap-4">
+        <ThemeSwitcher />
+        <button 
+          type="button"
+          class="md:hidden"
+          aria-label="Toggle menu"
+        >
+          <Icon name="mdi:menu" class="h-6 w-6" />
+        </button>
       </div>
     </div>
   </div>
