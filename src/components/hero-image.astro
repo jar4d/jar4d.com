@@ -1,15 +1,19 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import moonImage from "~/assets/moon.jpg";
+import { Image } from "@astrojs/image/components";
+import moonImage from "../assets/moon.jpg";
 
 const widths = [450, 800, 1200];
 const sizes = "100vw";
 ---
 
-<Picture
-  class="h-full w-full object-cover"
-  src={moonImage}
-  widths={widths}
-  sizes={sizes}
-  alt="The ridged surface of the moon"
-/>
+<div class="relative h-full">
+  <div class="absolute inset-0">
+    <Image
+      class="h-full w-full object-cover"
+      src={moonImage}
+      alt="The moon"
+      width={1920}
+      height={1080}
+    />
+  </div>
+</div>
