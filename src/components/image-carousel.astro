@@ -23,11 +23,11 @@ const images = [
 ];
 ---
 
-<section class="relative bg-offset py-16 z-0">
+<section class="relative bg-offset py-16">
   <div class="relative h-[800px] overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Top row */}
-    <div class="absolute inset-0 h-[45%] mb-[5px]">
-      <div class="animate-slide-right flex gap-[5px] absolute left-0">
+    <div class="absolute inset-x-0 top-0 h-[395px]">
+      <div class="animate-slide-right flex gap-[5px] absolute left-0 w-max">
         {images.map((image) => (
           <div class={`relative ${image.width} shrink-0`}>
             <img
@@ -51,8 +51,8 @@ const images = [
     </div>
 
     {/* Bottom row */}
-    <div class="absolute bottom-0 inset-x-0 h-[45%]">
-      <div class="animate-slide-left flex gap-[5px] absolute right-0">
+    <div class="absolute inset-x-0 bottom-0 h-[395px]">
+      <div class="animate-slide-left flex gap-[5px] absolute right-0 w-max">
         {images.reverse().map((image) => (
           <div class={`relative ${image.width} shrink-0`}>
             <img
