@@ -75,14 +75,16 @@ const business: Array<CompatibilityItem> = [
     Combining <span class="text-primary">marketing expertise</span> with{" "}
     <span class="text-primary">business acumen</span> to drive growth.
   </Fragment>
-  <CompatibilityList
-    items={marketing}
-    title="Marketing Skills"
-    url="#"
-  />
-  <CompatibilityList
-    items={business}
-    title="Business Skills"
-    url="#"
-  />
+  <div class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+    <CompatibilityList
+      items={marketing}
+      title="Marketing Skills"
+      url="#"
+    />
+    <CompatibilityList
+      items={business}
+      title="Business Skills"
+      url="#"
+    />
+  </div>
 </ContentSection>
