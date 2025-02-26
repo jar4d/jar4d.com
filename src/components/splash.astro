@@ -42,15 +42,15 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
 <section class="relative h-full">
-  <div class="relative min-h-screen bg-cover bg-center lg:bg-[url('/src/assets/jared_ruddy.jpg')]">
-    <div class="relative grid h-full place-items-center px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col max-w-3xl py-12 lg:py-24">
-        <h2 class="gradient-text text-left font-extrabold tracking-tighter text-4xl sm:text-6xl lg:text-8xl mb-6">
+  <div class="lg:bg-[url('/src/assets/jared_ruddy.jpg')] bg-center h-screen self-start">
+    <div class="relative grid h-full place-items-center sm:grid-cols-1 md:grid-cols-2 mx-2">
+      <div class="flex flex-col self-center sm:gap-1 md:gap-4">
+        <h2 class="gradient-text text-left font-extrabold tracking-tighter text-8xl">
           Hello,
           <br /> I'm
           <br /> Jared.
         </h2>
-        <p class="text-left text-sm sm:text-base lg:text-lg space-y-4 mb-8">
+        <p class="text-left text-xs md:text-sm">
           <br><b>Growth wrangler. Marketer. Customer champion.</b>
           <br>I've spent my career building great customer experiences.&nbsp;<a class="underline decoration-sky-500" href="http://thinkplanthrive.com/">I've started up.</a>&nbsp;<a class="underline decoration-pink-500" href="https://www.eu-startups.com/2016/08/10-european-pet-startups-to-watch-in-2016-and-beyond">Sold</a>. Built new things, including&nbsp;<a class="underline decoration-indigo-500" href="https://www.pressgazette.co.uk/news-uk-launches-times-london-weekly-international-digital-edition/">a newspaper</a>.&nbsp;<a class="underline decoration-sky-500" href="https://www.wired.co.uk/article/miro-robo-dog-elderly">A robot dog</a>.&nbsp;<a class="underline decoration-pink-500" href="https://www.inclusiviti.com/">An omni-directional wheelchair</a>. <a hclass="underline decoration-sky-500" ref="https://www.techradar.com/uk/news/world-of-tech/bt-tower-plays-host-to-europe-s-biggest-led-display-646210">The most visible screen in London</a>. And for a time,&nbsp;<a class="underline decoration-pink-500" href="https://www.engadget.com/2013/02/20/320-gigapixel-panorama-of-london/">the world's biggest picture</a>. I've worked with a bunch of startups to scale, including marketplace business&nbsp;<a class="underline decoration-sky-500" href="https://www.plentific.com/">Plentific</a>, helping them to pivot, scale their business across Europe and raise over $150m. I led VC Forward Partner's IPO and growth studio. Currently CMO at Day 8, a DTC travel group providing incredible adventures on and off the water.  
           <br>
@@ -60,12 +60,12 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
           <br>
         </p>
         
-        <ul class="grid grid-cols-4 gap-4 w-fit">
+        <ul class="relative grid grid-cols-4 gap-2">
           {
             links.map((link) => (
               <li style="color: SlateGray">
                 <a
-                  class="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-current p-2 hover:opacity-75 transition-opacity"
+                  class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-current p-2 hover:opacity-75 transition-opacity"
                   href={link.url}
                 >
                   <span class="sr-only">{link.description}</span>
