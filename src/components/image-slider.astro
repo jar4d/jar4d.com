@@ -3,62 +3,80 @@ const images = [
   {
     src: "https://placehold.co/600x400/222222/FFFFFF/png",
     aspect: "aspect-[3/2]",
-    width: "w-72"
+    width: "w-64"
   },
   {
     src: "https://placehold.co/400x600/222222/FFFFFF/png",
     aspect: "aspect-[2/3]",
-    width: "w-48"
+    width: "w-44"
   },
   {
     src: "https://placehold.co/800x400/222222/FFFFFF/png",
     aspect: "aspect-[2/1]",
-    width: "w-96"
+    width: "w-80"
   },
   {
     src: "https://placehold.co/500x500/222222/FFFFFF/png",
     aspect: "aspect-square",
-    width: "w-64"
-  },
-  {
-    src: "https://placehold.co/600x400/222222/FFFFFF/png",
-    aspect: "aspect-[3/2]",
-    width: "w-72"
-  },
-  {
-    src: "https://placehold.co/400x600/222222/FFFFFF/png",
-    aspect: "aspect-[2/3]",
-    width: "w-48"
+    width: "w-56"
   }
 ];
 ---
 
-<div class="relative h-[33vh] overflow-hidden bg-black">
-  <div class="animate-slide flex gap-4 absolute py-4">
-    {images.map((image) => (
-      <div class={`relative ${image.width} shrink-0`}>
-        <img
-          src={image.src}
-          alt="Placeholder"
-          class={`${image.aspect} h-full w-full object-cover rounded-lg`}
-        />
-      </div>
-    ))}
-    {/* Duplicate images for seamless loop */}
-    {images.map((image) => (
-      <div class={`relative ${image.width} shrink-0`}>
-        <img
-          src={image.src}
-          alt="Placeholder"
-          class={`${image.aspect} h-full w-full object-cover rounded-lg`}
-        />
-      </div>
-    ))}
+<div class="relative h-[50vh] overflow-hidden bg-black py-4">
+  {/* Top row */}
+  <div class="relative h-[45%] mb-4">
+    <div class="animate-slide-right flex gap-4 absolute">
+      {images.map((image) => (
+        <div class={`relative ${image.width} shrink-0`}>
+          <img
+            src={image.src}
+            alt="Placeholder"
+            class={`${image.aspect} h-full w-full object-cover rounded-lg`}
+          />
+        </div>
+      ))}
+      {/* Duplicate for seamless loop */}
+      {images.map((image) => (
+        <div class={`relative ${image.width} shrink-0`}>
+          <img
+            src={image.src}
+            alt="Placeholder"
+            class={`${image.aspect} h-full w-full object-cover rounded-lg`}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Bottom row */}
+  <div class="relative h-[45%]">
+    <div class="animate-slide-left flex gap-4 absolute translate-x-[-15%]">
+      {images.reverse().map((image) => (
+        <div class={`relative ${image.width} shrink-0`}>
+          <img
+            src={image.src}
+            alt="Placeholder"
+            class={`${image.aspect} h-full w-full object-cover rounded-lg`}
+          />
+        </div>
+      ))}
+      {/* Duplicate for seamless loop */}
+      {images.map((image) => (
+        <div class={`relative ${image.width} shrink-0`}>
+          <img
+            src={image.src}
+            alt="Placeholder"
+            class={`${image.aspect} h-full w-full object-cover rounded-lg`}
+          />
+        </div>
+      ))}
+    </div>
   </div>
 </div>
 
 <style>
-  @keyframes slide {
+  @keyframes slide-right {
     0% {
       transform: translateX(0);
     }
@@ -67,11 +85,25 @@ const images = [
     }
   }
 
-  .animate-slide {
-    animation: slide 30s linear infinite;
+  @keyframes slide-left {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 
-  .animate-slide:hover {
+  .animate-slide-right {
+    animation: slide-right 40s linear infinite;
+  }
+
+  .animate-slide-left {
+    animation: slide-left 40s linear infinite;
+  }
+
+  .animate-slide-right:hover,
+  .animate-slide-left:hover {
     animation-play-state: paused;
   }
 </style> 
