@@ -1,19 +1,23 @@
 ---
 import { Image } from "@astrojs/image/components";
-import moonImage from "../assets/moon.jpg";
+import { getImage } from "@astrojs/image";
 
-const widths = [450, 800, 1200];
-const sizes = "100vw";
+const image = await getImage({
+  src: import.meta.env.BASE_URL + "/images/jared_ruddy.jpg",
+  width: 1920,
+  height: 1080,
+  format: 'jpg',
+});
 ---
 
 <div class="relative h-full">
   <div class="absolute inset-0">
-    <Image
+    <img
       class="h-full w-full object-cover"
-      src={moonImage}
-      alt="The moon"
-      width={1920}
-      height={1080}
+      src={image.src}
+      width={image.attributes.width}
+      height={image.attributes.height}
+      alt="Jared Ruddy"
     />
   </div>
 </div>

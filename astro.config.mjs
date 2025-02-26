@@ -4,7 +4,8 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-moon-landing.netlify.app/",
+  site: "https://jar4d.com/",
+  base: '/',
   integrations: [
     tailwind(),
     image({
