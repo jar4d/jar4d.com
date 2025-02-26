@@ -1,25 +1,52 @@
 ---
 import ContentSection from "~/components/content-section.astro";
-import ShowcaseCard from "~/components/showcase-card.astro";
-import { getShowcase } from "~/data/showcase";
+import { Icon } from "astro-icon";
 
-const sites = await getShowcase();
+const achievements = [
+  {
+    title: "BT Tower LED Display",
+    description: "Europe's largest LED display installation at London's iconic BT Tower",
+    icon: "mdi:tower-fire",
+    link: "https://www.techradar.com/uk/news/world-of-tech/bt-tower-plays-host-to-europe-s-biggest-led-display-646210"
+  },
+  {
+    title: "World's Largest Photo",
+    description: "Created the world's largest panoramic photo of London at 320 gigapixels",
+    icon: "mdi:camera",
+    link: "https://www.engadget.com/2013/02/20/320-gigapixel-panorama-of-london/"
+  },
+  {
+    title: "Miro Robot Dog",
+    description: "Innovative robot companion for the elderly",
+    icon: "mdi:robot-happy",
+    link: "https://www.wired.co.uk/article/miro-robo-dog-elderly"
+  }
+];
 ---
 
-<ContentSection title="Showcase" id="showcase">
+<ContentSection title="Key Projects" id="projects">
   <Fragment slot="lead">
-    Astro is <span class="text-primary">versatile</span>.{" "}
-    <span class="text-primary">Explore</span> what's possible and get{" "}
-    <span class="text-primary">inspired</span>.
+    Creating <span class="text-primary">innovative solutions</span> and{" "}
+    <span class="text-primary">memorable experiences</span>
   </Fragment>
   <div class="max-w-6xl space-y-2">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {sites.map((site) => <ShowcaseCard site={site} />)}
+      {
+        achievements.map(({ title, description, icon, link }) => (
+          <a 
+            href={link}
+            class="group flex flex-col gap-4 border border-default bg-offset p-6 hover:bg-default transition-colors"
+          >
+            <div class="flex items-center gap-4">
+              <div class="h-8 w-8 rounded-full border-2 border-current p-1">
+                <Icon name={icon} />
+              </div>
+              <h3 class="font-bold text-lg group-hover:text-primary transition-colors">{title}</h3>
+            </div>
+            <p class="text-offset text-sm">{description}</p>
+          </a>
+        ))
+      }
     </div>
-    <p class="text-right text-sm">
-      <a class="text-primary" href="https://astro.build/showcase/">
-        ...and more &rarr;
-      </a>
-    </p>
   </div>
 </ContentSection>

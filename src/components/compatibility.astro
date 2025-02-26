@@ -3,87 +3,86 @@ import CompatibilityList from "~/components/compatibility-list.astro";
 import ContentSection from "~/components/content-section.astro";
 import type { CompatibilityItem } from "~/types";
 
-const frameworks: Array<CompatibilityItem> = [
+const marketing: Array<CompatibilityItem> = [
   {
-    title: "React",
-    icon: "frameworks/react",
-    url: "https://reactjs.org/",
+    title: "Growth Strategy",
+    icon: "mdi:strategy",
+    url: "#",
   },
   {
-    title: "Preact",
-    icon: "frameworks/preact",
-    url: "https://preactjs.com/",
+    title: "Brand Development",
+    icon: "mdi:palette-swatch",
+    url: "#",
   },
   {
-    title: "Svelte",
-    icon: "frameworks/svelte",
-    url: "https://svelte.dev/",
+    title: "Digital Marketing",
+    icon: "mdi:bullhorn",
+    url: "#",
   },
   {
-    title: "Vue",
-    icon: "frameworks/vue",
-    url: "https://vuejs.org/",
+    title: "Content Strategy",
+    icon: "mdi:file-document",
+    url: "#",
   },
   {
-    title: "Solid",
-    icon: "frameworks/solid",
-    url: "https://www.solidjs.com/",
+    title: "Product Marketing",
+    icon: "mdi:cube",
+    url: "#",
   },
   {
-    title: "Lit",
-    icon: "frameworks/lit",
-    url: "https://lit.dev/",
+    title: "Analytics",
+    icon: "mdi:chart-line",
+    url: "#",
   },
 ];
 
-const platforms: Array<CompatibilityItem> = [
+const business: Array<CompatibilityItem> = [
   {
-    title: "Netlify",
-    icon: "platforms/netlify",
-    url: "https://www.netlify.com/",
+    title: "Leadership",
+    icon: "mdi:account-group",
+    url: "#",
   },
   {
-    title: "Vercel",
-    icon: "platforms/vercel",
-    url: "https://vercel.com/",
+    title: "Fundraising",
+    icon: "mdi:cash",
+    url: "#",
   },
   {
-    title: "Cloudflare",
-    icon: "fa-brands:cloudflare",
-    url: "https://pages.cloudflare.com/",
+    title: "Startup Operations",
+    icon: "mdi:cog",
+    url: "#",
   },
   {
-    title: "Render",
-    icon: "platforms/render",
-    url: "https://render.com/",
+    title: "IR & Communications",
+    icon: "mdi:presentation",
+    url: "#",
   },
   {
-    title: "GitHub",
-    icon: "fa-brands:github",
-    url: "https://pages.github.com/",
+    title: "Team Building",
+    icon: "mdi:account-multiple-plus",
+    url: "#",
   },
   {
-    title: "GitLab",
-    icon: "fa-brands:gitlab",
-    url: "https://docs.gitlab.com/ee/user/project/pages/",
+    title: "Strategic Planning",
+    icon: "mdi:lightbulb",
+    url: "#",
   },
 ];
 ---
 
-<ContentSection title="Compatibility" id="compatibility">
+<ContentSection title="Skills & Tools" id="skills">
   <Fragment slot="lead">
-    Astro <span class="text-primary">plays nice</span>. Bring your own UI{" "}
-    <span class="text-primary">framework</span>
-    and deploy to your favorite <span class="text-primary">platform</span>.
+    Combining <span class="text-primary">marketing expertise</span> with{" "}
+    <span class="text-primary">business acumen</span> to drive growth.
   </Fragment>
   <CompatibilityList
-    items={frameworks}
-    title="Frameworks"
-    url="https://docs.astro.build/core-concepts/framework-components/"
+    items={marketing}
+    title="Marketing Skills"
+    url="#"
   />
   <CompatibilityList
-    items={platforms}
-    title="Platforms"
-    url="https://docs.astro.build/guides/deploy/"
+    items={business}
+    title="Business Skills"
+    url="#"
   />
 </ContentSection>
